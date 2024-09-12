@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok OAuth Callback</title>
+</head>
+<body>
+    <h1>TikTok OAuth Callback</h1>
+    <p id="auth-code">Warte auf TikTok...</p>
+
+    <script>
+        // Hole den Auth-Code aus der URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const authCode = urlParams.get('code');
+        
+        if (authCode) {
+            document.getElementById("auth-code").textContent = `Dein Auth-Code lautet: ${authCode}`;
+
+            // Du kannst den Auth-Code hier speichern oder an deinen Server weiterleiten
+            console.log("Auth-Code: ", authCode);
+        } else {
+            document.getElementById("auth-code").textContent = "Kein Auth-Code erhalten.";
+        }
+    </script>
+</body>
+</html>
